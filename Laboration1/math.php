@@ -9,7 +9,7 @@
 			return $side * $side;
 		}
 		
-		//Ber�knar max värdet av två tal
+		//Beräknar max värdet av två tal
 		public function MaxValue($value1, $value2) {
 			if ($value1 > $value2) 
 				return $value1;

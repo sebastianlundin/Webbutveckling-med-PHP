@@ -1,31 +1,26 @@
 <?php
 	require_once "LoginView.php"; 
 	
-	$title = "title";
-	$body = "";
+	$title = "Laboration 1";
+	$xhtml = "";
 	
 	$lw = new LoginView();
 	
-	$body .= $lw->DoLoginBox();
-	$body .=$lw->DoLogoutBox();
+	$xhtml .= $lw->DoLoginBox();
+	$xhtml .= $lw->DoLogoutBox();
 	
-	if ($lw->TriedToLogin() )
-	{
-		$body .= "Användaren har klickat på Login med användarnamn ";
-		$body .= $lw->GetUserName() . " och lösenord " . $lw->GetPassword();
-	}
-	else
-	{
-		$body .= "Användaren har inte klickat på Loginknappen";
+	//Manuellt test av LoginView
+	if ($lw->TriedToLogin() ) {
+		$xhtml .= "Användaren har klickat på Login med användarnamn ";
+		$xhtml .= $lw->GetUserName() . " och lösenord " . $lw->GetPassword();
+	} else {
+		$xhtml .= "Användaren har inte klickat på Loginknappen";
 	}
 	
-	if ($lw->TriedToLogout() )
-	{
-		$body .= "<br />Användaren har klickat på Logoutknappen.";
-	}
-	else 
-	{
-		$body .= "<br />Användaren har inte klickat på Logoutknappen.";	
+	if ($lw->TriedToLogout() ) {
+		$xhtml .= "<br />Användaren har klickat på Logoutknappen.";
+	} else {
+		$xhtml .= "<br />Användaren har inte klickat på Logoutknappen.";	
 	}
 ?>
 
@@ -41,7 +36,7 @@
   </head>
   <body>
 	<?php
-  		echo $body;
+  		echo $xhtml;
 	?>
   </body>
 </html>

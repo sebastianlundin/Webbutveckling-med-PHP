@@ -1,7 +1,7 @@
 <?php
 
 	/**
-	 *  Klass för att hantera med arrayer
+	 *  Klass f�r att hantera med arrayer
 	 */
 	class ArrayHandler {
 		//en funktion som vänder på ordningen på en array

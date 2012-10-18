@@ -22,8 +22,7 @@
 		public function GetUserName() {
 			if ($_GET["name"] == NULL) {
 				return NULL;
-			}
-			else {
+			} else {
 				return $_GET["name"];
 			}
 		}
@@ -31,8 +30,7 @@
 		public function GetPassword() {
 			if ($_GET["password"] == NULL) {
 				return NULL;
-			}
-			else {
+			} else {
 				return $_GET["password"];
 			}
 		}
@@ -40,8 +38,7 @@
 		public function TriedToLogin() {
 			if (isset($_GET["login"])) {
 				return true;
-			}
-			else {
+			} else {
 				return false;
 			}
 		}
@@ -49,8 +46,7 @@
 		public function TriedToLogout() {
 			if (isset($_GET["logout"])) {
 				return true;
-			}
-			else {
+			} else {
 				return false;
 			}
 		}
