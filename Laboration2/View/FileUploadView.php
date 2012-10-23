@@ -2,6 +2,8 @@
 
 	class FileUploadView {
 		
+		const CURRENT_FILE = "file";
+		
 		public function DoUploadForm() {
 			$xhtml = "<form action=\"\" method='post' enctype='multipart/form-data'>
 							<label for='file'>File:</label><input type='file' name='file'><br />
@@ -33,6 +35,10 @@
 			} else {
 				return false;
 			}
+		}
+		
+		public function GetFile() {
+			return $_FILES[CURRENT_FILE];
 		}
 	}
 	

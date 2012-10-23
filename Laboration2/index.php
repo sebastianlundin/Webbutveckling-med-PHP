@@ -13,7 +13,7 @@
 	$lh = new LoginHandler();
 	$fc = new FileUploadController;
 	
-	$xhtml = $lc->DoControll();
+	$xhtml = $lc->DoControll($lh);
 	
 	//Manuellt test av LoginHandler
 	if ($lh->IsLoggedIn()) {
@@ -22,7 +22,7 @@
 		$xhtml .= "Utloggad";
 	}
 	
-	$xhtml .= $fc->DoControll();
+	$xhtml .= $fc->DoControll($lh);
 	
 ?>
 

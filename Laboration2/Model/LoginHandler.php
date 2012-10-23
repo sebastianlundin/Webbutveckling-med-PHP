@@ -1,12 +1,16 @@
 <?php 
 
-	$_SESSION['status']="Utloggad";
-    
 	class LoginHandler {
-				
+		
+		private $session_status = "status";
+		
+		public function __construct() {
+			$_SESSION[$this->session_status] = "Utloggad";
+		}
+		
 		//Kontrollerar om användaren är inloggad
 		public function IsLoggedIn () {
-			if (isset($_SESSION['status']) && $_SESSION['status'] == "Inloggad"){
+			if (isset($_SESSION[$this->session_status]) && $_SESSION[$this->session_status] == "Inloggad"){
 				return true;
 			} else
 				return false;	
@@ -19,7 +23,7 @@
 			case "Tage":
 				if ($pwd == "Banan") {
 					$usrname . "loggades in.";
-					$_SESSION['status']="Inloggad";
+					$_SESSION[$this->session_status]="Inloggad";
 					return true;	
 				}
 				break;
@@ -27,7 +31,7 @@
 			case "Greger":
 				if ($pwd == "Apelsin") {
 					$usrname . "loggades in.";
-					$_SESSION['status']="Inloggad";
+					$_SESSION[$this->session_status]="Inloggad";
 					return true;	
 				}
 				break;
@@ -35,7 +39,7 @@
 			case "Mange":
 				if ($pwd == "Äpple" ) {
 					$usrname . "loggades in.";
-					$_SESSION['status']="Inloggad";
+					$_SESSION[$this->session_status]="Inloggad";
 					return true;	
 				}
 				break;
@@ -46,7 +50,7 @@
 		
 		//Loggar ut användaren
 		public function DoLogout () {
-			unset($_SESSION['status']);
+			unset($_SESSION[$this->session_status]);
 			return true;
 		}
 		

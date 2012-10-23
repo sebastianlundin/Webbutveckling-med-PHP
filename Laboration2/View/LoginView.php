@@ -63,7 +63,16 @@
 			if (isset($username) && isset($password)) {
 				setcookie("username", $username, time()+3600);
 				setcookie("password", $password, time()+3600);
+				$_COOKIE ['username'] = $username;
+				$_COOKIE ['password'] = $password;
 			}
+		}
+		
+		public function DeleteCookies() {
+				setcookie("username", "", time()-3600);
+				setcookie("password", "", time()-3600);
+				unset($_COOKIE ['username']);
+				unset($_COOKIE ['password']);
 		}
 		
 		public function GetCookieUsername() {
@@ -82,11 +91,28 @@
 			}
 		}
 		
+		public function GenerateTitle($title) {
+			$xhtml = "<h2>" . $title . "</h2>";
+			
+			return $xhtml;
+		}
+		
+		public function GenerateMessage($message) {
+			return $message;			
+		}
+		
 		public function Test() {
 			$this->SetCookies("användare", "lösenord");
 
 			if (!isset($_COOKIE["username"]) && !isset($_COOKIE["password"])) {
 				echo "Det fungerade inte att sätta cookies!";
+				return false;
+			}
+			
+			$this->DeleteCookies();
+			
+			if (isset($_COOKIE["username"]) && isset($_COOKIE["password"])) {
+				echo "Det fungerade inte att ta bort cookies!";
 				return false;
 			}
 			

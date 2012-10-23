@@ -1,22 +1,20 @@
 <?php
 
 	require_once (__DIR__ . "/../Model/FileUploadHandler.php");
-	require_once (__DIR__ . "/../Model/LoginHandler.php");
 	require_once (__DIR__ . "/../View/FileUploadView.php");
 
 	class FileUploadController {
 		
-		public function DoControll()
+		public function DoControll($lh)
 		{
 			$fh = new FileUploadHandler();
 			$fv = new FileUploadView();
-			$lh = new LoginHandler();
 				
 			$xhtml = "";
 				
 			if ($lh->IsLoggedIn()) {
 				if ($fv->TriedToUpload()) {
-					$result = $fh->UploadFile();
+					$result = $fh->UploadFile($fv->GetFile());
 					
 					if($result == 0) {
 						$xhtml .= "<br />Ett fel uppstod vid uppladdning av filen.";
